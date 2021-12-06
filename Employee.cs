@@ -14,9 +14,10 @@ namespace BethanyPieShopHRM
 
         private int numberOfHoursWorked;
         private double wage;
-        private double hourlyRate;
+        private double hourlyRate = 0;
+        private double bonus = 0;
 
-
+        
 
         public string FirstName
         {
@@ -87,7 +88,17 @@ namespace BethanyPieShopHRM
             }
         }
 
-
+        public double Bonus
+        {
+            get
+            {
+                return bonus;
+            }
+            set
+            {
+                bonus = value;
+            }
+        }
 
 
 
@@ -108,16 +119,17 @@ namespace BethanyPieShopHRM
 
         public double ReceiveWage(out int hoursWorked)
         {
-            Wage = NumberOfHoursWorked * HourlyRate;
+            Wage = NumberOfHoursWorked * HourlyRate + bonus;
 
             Console.WriteLine($"The wage for {NumberOfHoursWorked} hours of work is {Wage}.");
             numberOfHoursWorked = 0;
+            bonus = 0;
             hoursWorked = NumberOfHoursWorked;
 
             return Wage;
         }
+        
 
-
-
+        
     }
 }

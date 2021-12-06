@@ -66,44 +66,44 @@ namespace BethanyPieShopHRM
 
         }
 
-            private static void RegisterEmployee()
-                {
-                    Console.WriteLine("Creating an employee");
-                    Console.Write("Enter the first name: ");
-                    string firstname = Console.ReadLine();
+        private static void RegisterEmployee()
+        {
+            Console.WriteLine("Creating an employee");
+            Console.Write("Enter the first name: ");
+            string firstname = Console.ReadLine();
 
-                    Console.Write("Enter the last name ");
-                    string lastname = Console.ReadLine();
+            Console.Write("Enter the last name ");
+            string lastname = Console.ReadLine();
 
-                    Console.Write("Enter the hourly rate: ");
-                    string hourlyRate = Console.ReadLine();
-                    double rate = double.Parse(hourlyRate);
+            Console.Write("Enter the hourly rate: ");
+            string hourlyRate = Console.ReadLine();
+            double rate = double.Parse(hourlyRate);
 
-                    Employee employee = new Employee(firstname, lastname, rate);
-                    employees.Add(employee);
+            Employee employee = new Employee(firstname, lastname, rate);
+            employees.Add(employee);
 
-                    Console.WriteLine("Employee created!\n\n");
-            }
+            Console.WriteLine("Employee created!\n\n");
+        }
 
-            private static void RegisterWork()
+        private static void RegisterWork()
+        {
+            Console.WriteLine("Select an employee");
+
+            for (int i = 1; i <= employees.Count; i++)
             {
-                Console.WriteLine("Select an employee");
-
-                for (int i = 1; i <= employees.Count; i++)
-                {
                 Console.WriteLine($"{i}. {employees[i - 1].FirstName} {employees[i - 1].LastName}");
-                }
-
-                int selection = int.Parse(Console.ReadLine());//we will assume here that a valid ID is selected
-
-                Console.Write("Enter the number of hours worked: ");
-                int hours = int.Parse(Console.ReadLine());//we will assume here that a valid amount was entered
-
-                Employee selectedEmployee = employees[selection - 1];
-                int numberOfHoursWorked = selectedEmployee.PerformWork(hours);
-                Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has now worked {numberOfHoursWorked} hours in total.\n\n");
             }
-                private static void PayEmployee()
+
+            int selection = int.Parse(Console.ReadLine());//we will assume here that a valid ID is selected
+
+            Console.Write("Enter the number of hours worked: ");
+            int hours = int.Parse(Console.ReadLine());//we will assume here that a valid amount was entered
+
+            Employee selectedEmployee = employees[selection - 1];
+            int numberOfHoursWorked = selectedEmployee.PerformWork(hours);
+            Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has now worked {numberOfHoursWorked} hours in total.\n\n");
+        }
+        private static void PayEmployee()
         {
             Console.WriteLine("Select an employee");
 
@@ -120,16 +120,12 @@ namespace BethanyPieShopHRM
             double receivedWage = selectedEmployee.ReceiveWage(out hoursWorked);
 
 
-            Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has received a wage of {GetReceivedWage(receivedWage)}. The hours worked is reset to {hoursWorked}.\n\n");
+            Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has received a wage of {receivedWage}. The hours worked is reset to {hoursWorked}.\n\n");
         }
 
-        private static double GetReceivedWage(double receivedWage)
-        {
-            return receivedWage;
-        }
 
         private static void ChangeRate()
-            {
+        {
             Console.WriteLine("Select an employee");
 
             for (int i = 1; i <= employees.Count; i++)
@@ -143,10 +139,10 @@ namespace BethanyPieShopHRM
             double newRate = double.Parse(hourlyRate);
             Employee selectedEmployee = employees[selection - 1];
             selectedEmployee.HourlyRate = newRate;
-            }
-            
-            private static void Bonus()
-            {
+        }
+
+        private static void Bonus()
+        {
             Console.WriteLine("Select an employee");
 
             for (int i = 1; i <= employees.Count; i++)
@@ -159,15 +155,13 @@ namespace BethanyPieShopHRM
             string bonus = Console.ReadLine();
             double addBonus = double.Parse(bonus);
             Employee selectedEmployee = employees[selection - 1];
-            
+            selectedEmployee.Bonus = addBonus;
 
 
-            
 
-            
-            
 
-        }   
+
+        }
 
 
 
