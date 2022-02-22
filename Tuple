@@ -1,0 +1,28 @@
+Given an unsorted list of dates, write a function which will return a list of tuples - date ranges.
+
+Example 1: var input1 = new List<DateTime>() {
+
+new DateTime(2016, 6, 20), new DateTime(2016, 6, 21), new DateTime(2016, 6, 22), 
+
+new DateTime(2016, 6, 25), new DateTime(2016, 6, 26) };
+
+The result should be: var output1 = new List<Tuple<DateTime, DateTime>>() {
+
+     Tuple.Create(new DateTime(2016, 6, 20), new DateTime(2016, 6, 22)),
+
+     Tuple.Create(new DateTime(2016, 6, 25), new DateTime(2016, 6, 26)) };
+
+Example 2: var input2 = new List<DateTime>() {
+
+new DateTime(2016, 6, 15), new DateTime(2016, 6, 16), new DateTime(2016, 6, 25) };
+
+The result should be: var output2 = new List<Tuple<DateTime, DateTime>>() {
+
+     Tuple.Create(new DateTime(2016, 6, 15), new DateTime(2016, 6, 16)),
+
+     Tuple.Create(new DateTime(2016, 6, 25), new DateTime(2016, 6, 25) };
+
+
+public List<Tuple<DateTime, DateTime>> Solve(List<DateTime> array)
+
+{
